@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Link, router } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from '@expo/vector-icons';
 
 const SignInPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +12,8 @@ const SignInPage: React.FC = () => {
       router.replace('/age-selection');
     } else if (email === 'admin1@gmail.com' && password === 'admin123') {
       router.replace('/admin-dashboard');
+    } else if (email === 'trainer@gmail.com' && password === 'trainer123') {
+      router.replace('/trainer-dashboard');
     } else {
       Alert.alert('Error', 'Invalid email or password');
     }
@@ -70,6 +72,7 @@ const SignInPage: React.FC = () => {
           </TouchableOpacity>
         </Link>
       </View>
+
     </View>
   );
 };
@@ -79,19 +82,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1e1e1e', 
+    backgroundColor: '#1e1e1e',
     padding: 20,
   },
   title: {
     fontSize: 24,
-    color: '#fff', 
+    color: '#fff',
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
-    color: '#aaa', 
+    color: '#aaa',
     textAlign: 'center',
     marginBottom: 30,
   },
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    backgroundColor: '#333', 
+    backgroundColor: '#333',
     borderRadius: 25,
     marginBottom: 15,
     paddingHorizontal: 20,
@@ -111,17 +114,17 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     fontSize: 16,
-    color: '#fff', 
+    color: '#fff',
   },
   forgotPassword: {
-    color: '#ff4757', 
+    color: '#ff4757',
     fontSize: 14,
     marginBottom: 20,
     alignSelf: 'flex-end',
   },
   loginButton: {
     width: '100%',
-    backgroundColor: '#ff4757', 
+    backgroundColor: '#ff4757',
     paddingVertical: 15,
     borderRadius: 25,
     alignItems: 'center',
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
   },
   loginButtonText: {
     fontSize: 18,
-    color: '#fff', 
+    color: '#fff',
     fontWeight: 'bold',
   },
   registerContainer: {
@@ -139,14 +142,32 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   registerText: {
-    color: '#aaa', 
+    color: '#aaa',
     fontSize: 14,
   },
   registerLink: {
-    color: '#ff4757', 
+    color: '#ff4757',
     fontSize: 14,
     fontWeight: 'bold',
     marginLeft: 5,
+  },
+  demoContainer: {
+    marginTop: 30,
+    padding: 15,
+    backgroundColor: '#252525',
+    borderRadius: 10,
+    width: '100%',
+  },
+  demoText: {
+    color: '#ff4757',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  demoCredentials: {
+    color: '#aaa',
+    fontSize: 14,
+    marginBottom: 3,
   },
 });
 

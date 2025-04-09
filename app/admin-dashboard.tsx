@@ -5,10 +5,16 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
 const CARD_MARGIN = 8;
-const CARD_WIDTH = (width - 40 - CARD_MARGIN) / 2;
+const CARD_WIDTH = (width - 40 - CARD_MARGIN) / 2; // 40 = total horizontal padding
+
+type AdminFeature = {
+  name: string;
+  icon: 'edit' | 'verified-user' | 'analytics' | 'payment' | 'fitness-center';
+  route: '/content-management' | '/trainer-verification' | '/user-analytics' | '/subscription-management' | '/workout-plan-creation';
+};
 
 const AdminDashboard: React.FC = () => {
-  const adminFeatures = [
+  const adminFeatures: AdminFeature[] = [
     { 
       name: 'Content Management', 
       icon: 'edit',
